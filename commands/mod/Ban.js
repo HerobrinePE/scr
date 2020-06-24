@@ -27,7 +27,7 @@ module.exports = {
       .setDescription(`${message.author} banned ${mtn}`)
       .setColor("RANDOM")
       .addField(`the user`,"<@" +`${mtn.id}`+">" +` got banned for ` +reason +  " \n *banned* in the channel: " +message.channel)
-      .setFooter("Banned user id🔨 " + `${mtn.id}`);
+      .setFooter("Banned user id🔨 " + `${mtn.tag}`);
     let Bchannel = message.guild.channels.find("name", "punishments");
     if (!Bchannel) return message.channel.send("No channel called Punishments, this channel will be made").then(()=>{
       message.reply("return the command again")
