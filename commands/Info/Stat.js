@@ -18,7 +18,7 @@ module.exports = {
     .addField('This Server Channel Count', message.guild.channels.size)
     .addField('This Server Role Count', message.guild.roles.size+"\n || ||")
     
-     
+     message.channel.send(embed)
           
         }
         
