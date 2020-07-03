@@ -22,6 +22,7 @@ module.exports = {
         .setColor(text)
         .setTitle("role color changed")
         .addField(`${message.author.tag}`, "changed the "+rRole+" color to "+ text )
+.addField("Length of Hex Code", text.length)
         message.channel.send(embed)
     }catch(error){
       message.guild.channels.find("name", "errorlogs").send(error+"01=^^")
