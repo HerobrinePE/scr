@@ -103,10 +103,10 @@ client.on("message", message =>{
     if(message.author.bot) return;
     const bed = new RichEmbed()
     .setTitle("DMs")
-    .setThumbnail(message.author.avatarUrl)
     .setDescription("A User Dmed the bot")
     .setColor("RANDOM")
     .setAuthor(message.author.username)
+     .setThumbnail(`${message.author.avatarUrl}`)
     .addField(`${message.author.tag} sent`, `${message.content}`)
     .setFooter("copy id below if needed "+message.author.id)
     client.channels.get(`753367363029565581`).send(bed).then(m=>{m.channel.send(message.author.id)})
