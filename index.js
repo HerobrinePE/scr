@@ -100,13 +100,14 @@ client.on("guildDelete", guild => {
 
 client.on("message", message =>{
   if(message.channel.type === "dm"){
+    let Url = message.author.avatarUrl
     if(message.author.bot) return;
     const bed = new RichEmbed()
     .setTitle("DMs")
     .setDescription("A User Dmed the bot")
     .setColor("RANDOM")
     .setAuthor(message.author.username)
-     .setThumbnail(`${message.author.avatarUrl}`)
+     .setThumbnail(`${Url}`)
     .addField(`${message.author.tag} sent`, `${message.content}`)
     .setFooter("copy id below if needed "+message.author.id)
     client.channels.get(`753367363029565581`).send(bed).then(m=>{m.channel.send(message.author.id)})
