@@ -92,25 +92,24 @@ client.on("guildDelete", guild => {
     client.login(process.env.TOKEN);
   }, 3000);
 });
-// server.js
-// where your node app starts
 
-// init project
-const express = require('express');
-const app = express();
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
 
-// http://expressjs.com/en/starter/basic-routing.html
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
-});
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+
+client.on("message", message =>{
+  if(message.channel.type === "dm"){
+    if(message.author.bot) return;
+    const bed = new RichEmbed()
+    .setTitle("DMs")
+    .setDescription("A User Dmed the bot")
+    .setColor("RANDOM")
+    .setAuthor(message.author.username)
+    .addField(`${message.author.tag} sent`, `${message.content}`)
+    .setFooter("copy id below if needed "+message.author.id)
+    client.channels.get(`753367363029565581`).send(bed).then(m=>{m.channel.send(message.author.id)})
+    
+    }
+})
+
