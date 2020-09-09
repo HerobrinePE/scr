@@ -103,6 +103,7 @@ client.on("message", message =>{
     if(message.author.bot) return;
     const bed = new RichEmbed()
     .setTitle("DMs")
+    .setThumbnail(message.author.avatarUrl)
     .setDescription("A User Dmed the bot")
     .setColor("RANDOM")
     .setAuthor(message.author.username)
