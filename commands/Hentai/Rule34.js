@@ -6,6 +6,7 @@ module.exports = {
   description: "searcher for rule34",
    category: "Hentai",
   run: async (client, message, args) => {
+    if(message.channel.nsfw === false) return message.reply("Command not available here")
     let mes = message.content.split(" ").slice(1);
     posts({ tags: [mes.join()] }).then(value => {
       let f = Math.floor(Math.random() * 100);
@@ -14,6 +15,7 @@ module.exports = {
       
       let Rich = new RichEmbed()
         .setTitle(val.created_at)
+        .addField("Image Link", `[Click Here](${file_url})`)
         .setImage(val.file_url);
       message.channel.send(Rich);
     });
