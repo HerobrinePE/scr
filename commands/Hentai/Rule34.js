@@ -15,8 +15,8 @@ module.exports = {
       
       let Rich = new RichEmbed()
         .setTitle(val.created_at)
-        .addField("Image Link", `[Click Here](${file_url})`)
-        .setImage(val.file_url);
+         .setImage(val.file_url);
+        .addField("Image Link", `[Click Here](${val.file_url})`)
       message.channel.send(Rich);
     });
   }
