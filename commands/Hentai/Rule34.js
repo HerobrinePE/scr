@@ -12,11 +12,11 @@ module.exports = {
       let f = Math.floor(Math.random() * 100);
       let val = value.posts[parseInt(f)];
       var i = 0;
-      
+     const s = mes.join(" ")
       let Rich = new RichEmbed()
         .setTitle(val.created_at)
          .setImage(val.file_url)
-         .addField(`Your Search ${mes.toUpperCase()}`, ` [Link](${val.file_url})`)
+         .addField(`Your Search ${s.toUpperCase()}`, ` [Link](${val.file_url})`)
       message.channel.send(Rich);
     });
   }
