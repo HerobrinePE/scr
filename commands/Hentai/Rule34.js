@@ -3,6 +3,8 @@ const { RichEmbed } = require("discord.js");
 let v = [];
 module.exports = {
   name: "rule34",
+  description: "searcher for rule34",
+   category: "Hentai",
   run: async (client, message, args) => {
     let mes = message.content.split(" ").slice(1);
     posts({ tags: [mes.join()] }).then(value => {
