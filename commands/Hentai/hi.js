@@ -1,7 +1,7 @@
 const superagent = require('superagent')
    const { discord, RichEmbed }= require("discord.js")
 module.exports = {
-    name: "set",
+    name: "setloop",
     category: null,
     run: async (client, msg, args) => {
       msg.delete()
