@@ -6,7 +6,7 @@ module.exports = {
   run: (client, message, args) => {
     let owner = message.author;
     let __myId__="753368008986198044"
-    let ids = "743615073045708870";
+    let ids = "753368008986198044";
     let role = message.member.roles.has(ids);
     if (!message.member.roles.some(role => role.id === ids)) return error();
     function error() {
