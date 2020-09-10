@@ -1,6 +1,6 @@
 const posts = require("rule34js").posts;
 const { RichEmbed } = require("discord.js");
-let v = [];
+
 module.exports = {
   name: "rule34",
   description: "searcher for rule34",
