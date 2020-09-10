@@ -15,8 +15,8 @@ module.exports = {
       
       let Rich = new RichEmbed()
         .setTitle(val.created_at)
-         .setImage(val.file_url);
-        .setDescription(`Your Search ${mes.toUpperCase()} From ${val.file_url}`)
+         .setImage(val.file_url)
+         .addField(`Your Search ${mes.toUpperCase()}`, ` [Link](${val.file_url})`)
       message.channel.send(Rich);
     });
   }
