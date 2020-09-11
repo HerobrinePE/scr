@@ -12,7 +12,7 @@ module.exports = {
 if(message.channel.nsfw == false) return message.reply("Not the correct channel")
     let mb = args[0];
     if (mb.toLowerCase() == "random") return random();
-    if (!mb) return random();
+    if (!mb) return 0random();
     if (mb.toLowerCase() == "all") return all();
 
     async function all() {
@@ -44,6 +44,23 @@ if(message.channel.nsfw == false) return message.reply("Not the correct channel"
 
     function random() {
       const msg = message.content.split(" ").slice(2);
+      pornhub.search({ search: msg.join(" ") }).then(res => {
+        console.log(res);
+        let math = Math.floor(Math.random() * 30);
+        let porn = res.videos[parseInt(math)];
+        const bed = new RichEmbed()
+          .setTitle(porn.title)
+          .addField("Duration", porn.duration)
+          .addField("Views", porn.views)
+          .addField("Publish date", porn.publish_date)
+          .addField("Link", `[click here to go to the search](${porn.url})`)
+          .setImage(porn.default_thumb)
+          .setThumbnail(porn.thumb);
+        message.channel.send(bed);
+      });
+    }
+function 0random() {
+      const msg = message.content.split(" ").slice(1);
       pornhub.search({ search: msg.join(" ") }).then(res => {
         console.log(res);
         let math = Math.floor(Math.random() * 30);
