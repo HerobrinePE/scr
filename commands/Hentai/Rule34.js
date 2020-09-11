@@ -3,7 +3,10 @@ const { RichEmbed } = require("discord.js");
 let v = [];
 module.exports = {
   name: "rule34",
+  description: "searcher for rule34",
+   category: "Hentai",
   run: async (client, message, args) => {
+    if(message.channel.nsfw === false) return message.reply("Command not available here")
     let mes = message.content.split(" ").slice(1);
     posts({ tags: [mes.join()] }).then(value => {
       let f = Math.floor(Math.random() * 100);
@@ -12,7 +15,8 @@ module.exports = {
       
       let Rich = new RichEmbed()
         .setTitle(val.created_at)
-        .setImage(val.file_url);
+         .setImage(val.file_url)
+        .setDescription(`Your Search ${mes.toUpperCase()} From ${val.file_url}`)
       message.channel.send(Rich);
     });
   }
