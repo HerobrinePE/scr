@@ -6,7 +6,10 @@ const search = [];
 const links = [];
 module.exports = {
   name: "porn",
+  category: "NSFW",
+  description: "Pornhub but its discord.js",
   run: async (client, message, args) => {
+if(message.channel.nsfw == false) return message.reply("Not the correct channel")
     let mb = args[0];
     if (mb.toLowerCase() == "random") return random();
     if (!mb) return random();
@@ -44,7 +47,6 @@ module.exports = {
       pornhub.search({ search: msg.join(" ") }).then(res => {
         console.log(res);
         let math = Math.floor(Math.random() * 30);
-
         let porn = res.videos[parseInt(math)];
         const bed = new RichEmbed()
           .setTitle(porn.title)
