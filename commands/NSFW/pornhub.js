@@ -11,8 +11,11 @@ module.exports = {
   run: async (client, message, args) => {
 if(message.channel.nsfw == false) return message.reply("Not the correct channel")
     let mb = args[0];
-    if (mb.toLowerCase() == "random") return random();
+    
     if (!mb) return 0random();
+
+    if (mb.toLowerCase() == "random") return random();
+    
     if (mb.toLowerCase() == "all") return all();
 
     async function all() {
