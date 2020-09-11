@@ -1,6 +1,6 @@
 const posts = require("rule34js").posts;
 const { RichEmbed } = require("discord.js");
-let v = [];
+
 module.exports = {
   name: "rule34",
   description: "searcher for rule34",
@@ -12,11 +12,14 @@ module.exports = {
       let f = Math.floor(Math.random() * 100);
       let val = value.posts[parseInt(f)];
       var i = 0;
-      
+     const s = mes.join(" ")
       let Rich = new RichEmbed()
+
         .setTitle(val.created_at)
          .setImage(val.file_url)
         .setDescription(`Your Search ${mes.toUpperCase()} From ${val.file_url}`)
+         .setImage(val.file_url)
+         .addField(`Your Search ${s.toUpperCase()}`, ` [Click here to go to web image](${val.file_url})`)
       message.channel.send(Rich);
     });
   }
