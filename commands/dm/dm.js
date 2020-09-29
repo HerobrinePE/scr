@@ -1,7 +1,7 @@
 module.exports = {
   name: "msg",
   aliases: ["send"],
-  category: "dm",
+  category: null,
   description: "dm",
   run: (client, message, args) => {
     let owner = message.author;
