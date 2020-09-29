@@ -4,7 +4,7 @@ const { RichEmbed } = require("discord.js");
 module.exports = {
   name: "rule34",
   description: "searcher for rule34",
-   category: "Hentai",
+   category: "NSFW",
   run: async (client, message, args) => {
     if(message.channel.nsfw === false) return message.reply("Command not available here")
     let mes = message.content.split(" ").slice(1);
